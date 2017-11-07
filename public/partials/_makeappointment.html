@@ -1,0 +1,21 @@
+<h1>New Appointment</h1>
+<br>
+<br>
+<div ng-controller='appointmentController'>
+  <form ng-submit="createAppointment(appointment)">
+    Date:<label for=""><input type="date" name="date" ng-model='appointment.date'></label>
+    Time:<label for=""><input type="time" name="time" ng-model='appointment.time'></label><br>
+    Complain:<label for=""><input type="text" name="complain" ng-model='appointment.complain' placeholder="Complain"></label>
+    <label for=""><input type="hidden" name="user" ng-model='appointment.user' value="{{currentUser}}"></label>
+    <br>
+    <a href="#!/main"><button>Cancel</button></a>
+    <button>Add Appointment</button>
+  </form>
+  <br>
+  <br>
+  <div ng-if='errors'>
+    <ul>
+      <li ng-repeat='error in errors'>{{ error }}</li>
+    </ul>
+  </div>
+</div>

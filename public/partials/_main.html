@@ -1,0 +1,29 @@
+<ng-include src="'partials/shared/_nav.html'" class='logout'></ng-include>
+<h1>Doctor's Appointment</h1>
+<br>
+<br>
+<br>
+<form class='searchbar'>
+  <input ng-model='search.$' placeholder="Search">
+</form>
+<br>
+<br>
+<div ng-controller="appointmentController" ng-init='getAppointments()'>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Patient Name</th>
+    <th>Complain</th>
+  </tr>
+  <tr ng-repeat="appointment in appointments | filter:search:strict | orderBy: 'date':false">
+    <td>{{appointment.date | date:'MMMM d yyyy'}}</td>
+    <td>{{appointment.time | date:'h:mm a'}}</td>
+    <td>{{appointment.user}}</td>
+    <td>{{appointment.complain}}<div ng-if="appointment.user == currentUser"><button ng-click="cancel(appointment)">Cancel</button></div></td>
+  </tr>
+</table>
+</div>
+<br>
+<br>
+<a href="#!/makeappointment" class='appointment button2'>Add New Appointment</a>

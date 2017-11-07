@@ -1,0 +1,25 @@
+<ng-include src="'partials/shared/_nav.html'"></ng-include>
+
+<div ng-controller='mainController'>
+  <form ng-submit="login()" name="form">
+    <div><label for=""><input type='text' name="user" ng-model='user.name' placeholder='Patient Name'></label></div>
+    <button>Login</button>
+  </form>
+</div>
+<br>
+<div ng-if='errors'>
+  <ul>
+    <li ng-repeat='error in errors'>{{ error }}</li>
+  </ul>
+</div>
+<br><!-- Try both error htmls and see which one works -->
+<ul>
+  <li ng-repeat='error in errors'>{{error}}</li>
+</ul>
+<br>
+<div ng-controller='mainController'>
+  <form ng-submit="register()">
+    <div><label for=""><input type='text' ng-model='user.name' placeholder='Patient Name'></label></div>
+    <button>Register</button>
+  </form>
+</div>
