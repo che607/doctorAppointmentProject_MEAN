@@ -15,7 +15,7 @@ module.exports = {
     console.log('inside serverside controller - auth.js');
     User.findOne({ name: request.body.name })
     .then(function(user){
-      if (!user) throw new Error('no credentials match');
+      if (!user) throw new Error('No credentials match');
       console.log("user: ", user)
       login(request, response, user)
     })
@@ -54,14 +54,6 @@ module.exports = {
         }
       })
       .catch();
-
-
-
-    // Appointment.create(request.body)
-    //   .then(function(appointment){
-    //     response.json(appointment)
-    //   })
-    //   .catch(errorHandler.bind(response));
   },
   logout(request, response) {
     console.log('serverside - auth.js logout');
@@ -85,7 +77,7 @@ module.exports = {
 };
 
 function login(request, response, user){
-  console.log("request.session.user: ", request.session.user);
+  console.log("loginFunc - request.session.user: ", request.session.user);
   request.session.user = user.toObject();
   console.log("request.session.user(update): ", request.session.user);
   delete request.session.user.password;

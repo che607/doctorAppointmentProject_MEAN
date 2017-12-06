@@ -1,9 +1,16 @@
 <ng-include src="'partials/shared/_nav.html'"></ng-include>
 
-<div ng-controller='mainController'>
+<img src="../img/doctor.jpg" alt="doctor" class="doctor">
+<div ng-controller='mainController' class="login">
   <form ng-submit="login()" name="form">
     <div><label for=""><input type='text' name="user" ng-model='user.name' placeholder='Patient Name'></label></div>
     <button>Login</button>
+  </form>
+</div>
+<div ng-controller='mainController' class="register">
+  <form ng-submit="register()">
+    <div><label for=""><input type='text' ng-model='user.name' placeholder='Patient Name'></label></div>
+    <button>Register</button>
   </form>
 </div>
 <br>
@@ -16,10 +23,3 @@
 <ul>
   <li ng-repeat='error in errors'>{{error}}</li>
 </ul>
-<br>
-<div ng-controller='mainController'>
-  <form ng-submit="register()">
-    <div><label for=""><input type='text' ng-model='user.name' placeholder='Patient Name'></label></div>
-    <button>Register</button>
-  </form>
-</div>
