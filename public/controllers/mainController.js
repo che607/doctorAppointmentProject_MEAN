@@ -8,18 +8,24 @@ angular.module('app')
         };
 
         $scope.login = function(){
-          console.log('inside mainController')
+          console.log('Inside client side userService.login function');
           userService.login($scope.user, function(errorResponse){
-            if (errorsArray){
-              return displayErrors(errorsArray);
+            console.log("in here 1", errorResponse);
+            if (errorResponse){
+              return displayErrors(errorResponse);
             }
-          })
-            .then(function(){
-              $location.path('/main');
-            })
-            .catch(function(errorResponse){
-              console.log(errorResponse);
-            });
+            console.log("did not return out");
+            $location.path('/');
+          });
+            // .then(function(){
+            //   console.log("in here 2");
+            //
+            //     // $location.path('/main');
+            //
+            // })
+            // .catch(function(errorResponse){
+            //   console.log("in here 3");
+            // });
         };
 
         $scope.register = function(callback){
@@ -34,7 +40,9 @@ angular.module('app')
         };
 
         function displayErrors(errorArrayOrString){
+          console.log("in error function");
           $scope.errors = Array.isArray(errorArrayOrString) ? errorArrayOrString : [errorArrayOrString];
+          console.log("errors: ", $scope.errors);
         };
 
       }

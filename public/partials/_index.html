@@ -14,12 +14,11 @@
   </form>
 </div>
 <br>
+<div ng-controller='mainController'>
+{{ errors }}
 <div ng-if='errors'>
   <ul>
     <li ng-repeat='error in errors'>{{ error }}</li>
   </ul>
 </div>
-<br><!-- Try both error htmls and see which one works -->
-<ul>
-  <li ng-repeat='error in errors'>{{error}}</li>
-</ul>
+</div>

@@ -12,15 +12,15 @@ module.exports = {
     })
   },
   login(request, response) {
-    console.log('inside serverside controller - auth.js');
-    User.findOne({ name: request.body.name })
-    .then(function(user){
-      if (!user) throw new Error('No credentials match');
-      console.log("user: ", user)
-      login(request, response, user)
-    })
-    .catch(errorHandler.bind(response));
-  },
+      console.log('inside serverside controller - auth.js');
+      User.findOne({ name: request.body.name })
+      .then(function(user){
+        if (!user) throw new Error('No credentials match');
+        console.log("user: ", user)
+        login(request, response, user)
+      })
+      .catch(errorHandler.bind(response));
+    },
   register(request, response) {
       User.create(request.body)
         .then(function(user){

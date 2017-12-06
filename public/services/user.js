@@ -2,14 +2,15 @@ angular.module('app')
   .service('userService', ['$http', function($http){
 
     this.login = function(user, callBackToController){
-      return $http.post('/auth/login', user);
-      // .then(function(){
-      //   console.log("inside service-login-.then")
-      // })
-      // .catch(function(errorResponse){
-      //   console.log('inside service-login-.catch')
-      //   callBackToController(errorResponse.data)
-      // })
+      console.log("Inside cliente side userService.login function");
+      return $http.post('/auth/login', user)
+      .then(function(response){
+        console.log("CHECING PATH 1");
+      })
+      .catch(function(errorResponse){
+        console.log('inside service-login-.catch', errorResponse.data)
+        callBackToController(errorResponse.data)
+      })
     };
 
     this.register = function(user){
