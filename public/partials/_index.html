@@ -1,24 +1,20 @@
 <ng-include src="'partials/shared/_nav.html'"></ng-include>
 
-<img src="../img/doctor.jpg" alt="doctor" class="doctor">
+<img src="../img/doctor1.jpg" alt="doctor" class="doctor">
 <div ng-controller='mainController' class="login">
-  <form ng-submit="login()" name="form">
-    <div><label for=""><input type='text' name="user" ng-model='user.name' placeholder='Patient Name'></label></div>
-    <button>Login</button>
-  </form>
+  <div ng-if='errors'>
+    <ul>
+      <li ng-repeat='error in errors'>{{ error }}</li>
+    </ul>
+  </div>
+    <form ng-submit="login()" name="form" class="formLog">
+      <div><label for=""><input type='text' name="user" ng-model='user.name' placeholder='Patient Name'></label></div>
+      <button>Login</button>
+    </form>
 </div>
 <div ng-controller='mainController' class="register">
   <form ng-submit="register()">
     <div><label for=""><input type='text' ng-model='user.name' placeholder='Patient Name'></label></div>
     <button>Register</button>
   </form>
-</div>
-<br>
-<div ng-controller='mainController'>
-{{ errors }}
-<div ng-if='errors'>
-  <ul>
-    <li ng-repeat='error in errors'>{{ error }}</li>
-  </ul>
-</div>
 </div>

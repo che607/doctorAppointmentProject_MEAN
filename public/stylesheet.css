@@ -54,3 +54,13 @@ tr:nth-child(even) {
 .button2:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+.errMsg{
+  width: 300px;
+  height: 150px;
+  margin-top: 120px;
+  background-color: green;
+  vertical-align: top;
+}
+.formLog{
+  vertical-align: top;
+}

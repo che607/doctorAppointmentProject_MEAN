@@ -5,7 +5,8 @@ angular.module('app')
       console.log("Inside cliente side userService.login function");
       return $http.post('/auth/login', user)
       .then(function(response){
-        console.log("CHECING PATH 1");
+        console.log("CHECING PATH 1: ", response);
+        callBackToController(response)
       })
       .catch(function(errorResponse){
         console.log('inside service-login-.catch', errorResponse.data)

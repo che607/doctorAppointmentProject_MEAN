@@ -11,20 +11,22 @@ angular.module('app')
           console.log('Inside client side userService.login function');
           userService.login($scope.user, function(errorResponse){
             console.log("in here 1", errorResponse);
-            if (errorResponse){
+            if (errorResponse[0] === "No credentials match"){
+              console.log("inside IF")
               return displayErrors(errorResponse);
             }
-            console.log("did not return out");
-            $location.path('/');
+            else{
+              console.log("INSIDE ELSE")
+              $location.path('/main');
+            }
           });
             // .then(function(){
             //   console.log("in here 2");
-            //
-            //     // $location.path('/main');
-            //
+            //   $location.path('/main');
             // })
             // .catch(function(errorResponse){
-            //   console.log("in here 3");
+            //   console.log("in here 3", errorResponse);
+            //   return displayErrors(errorResponse);
             // });
         };
 
