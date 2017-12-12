@@ -7,10 +7,10 @@
       <li ng-repeat='error in errors'>{{ error }}</li>
     </ul>
   </div>
-    <form ng-submit="login()" name="form" class="formLog">
-      <div><label for=""><input type='text' name="user" ng-model='user.name' placeholder='Patient Name'></label></div>
-      <button>Login</button>
-    </form>
+  <form ng-submit="login()" name="form" class="formLog">
+    <div><label for=""><input type='text' name="user" ng-model='user.name' placeholder='Patient Name'></label></div>
+    <button>Login</button>
+  </form>
 </div>
 <div ng-controller='mainController' class="register">
   <form ng-submit="register()">
